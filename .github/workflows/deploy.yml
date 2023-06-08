@@ -16,6 +16,8 @@ on:
 jobs:
   deploy:
     name: Deploy
+    env:
+      LG_TOKEN: ${{ secrets.LG_TOKEN }}
     environment: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
@@ -24,8 +26,6 @@ jobs:
         uses: msimerson/node-lts-versions@v1.1.1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
-        env:
-          LG_TOKEN: ${{ secrets.LG_TOKEN }}
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
