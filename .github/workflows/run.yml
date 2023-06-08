@@ -16,11 +16,11 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - uses: actions/checkout@v2
     - name: Run
+      env:
+        LG_TOKEN: ${{ secrets.LG_TOKEN }}
       run: |
         npm ci
         npm start
-      env:
-        LG_TOKEN: ${{ vars.LG_TOKEN }}
+
 
