@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+    - main
+    
+permissions: write-all
+
+jobs:  
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: ${{ github.ref_name }}
+    secrets:
+      AWS_S3_BUCKET: ${{ secrets.LG_TOKEN }}
