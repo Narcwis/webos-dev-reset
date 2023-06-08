@@ -1,9 +1,4 @@
 # write a github actions workflow to run npm ci and npm start and get LG_TOKEN from secrets
-#
-
-# Path: .github/workflows/run.yml
-
-name: Deployment
 
 on:
   push:
@@ -20,7 +15,7 @@ jobs:
       env:
         LG_TOKEN: ${{ secrets.LG_TOKEN }}
       run: |
-          npm i
+          npm ci
           npm start
 
 
