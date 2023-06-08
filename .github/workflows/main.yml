@@ -1,18 +1,12 @@
-
 on:
   push:
-    branches: [ "main" ]
+    branches:
+    - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
-    steps:
-    - name: Run
-      env:
-        LG_TOKEN: ${{ secrets.LG_TOKEN }}
-      run: |
-          npm ci
-          npm start
+jobs:  
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: ${{ github.ref_name }}
+    secrets:
+      LG_TOKEN: ${{ secrets.LG_TOKEN }}

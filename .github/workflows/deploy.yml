@@ -1,1 +1,33 @@
+name: Deployment
 
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      LG_TOKEN:
+        required: true
+
+
+
+jobs:
+  deploy:
+    name: Deploy
+    environment: ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Node LTS versions
+        uses: msimerson/node-lts-versions@v1.1.1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        env:
+          LG_TOKEN: ${{ secrets.LG_TOKEN }}
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm start
