@@ -1,0 +1,23 @@
+{
+  "name": "webos-dev-reset",
+  "version": "1.0.0",
+  "description": "uses the dev app token to reset the dev mode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Narcwis/webos-dev-reset.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Narcwis/webos-dev-reset/issues"
+  },
+  "homepage": "https://github.com/Narcwis/webos-dev-reset#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "node-fetch": "^3.3.1"
+  }
+}
