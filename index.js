@@ -1,6 +1,7 @@
 (async () => {
   const axios = require("axios");
   const token = process.env.LG_TOKEN;
+  console.log(`token: ${token}`)
   const checkTimeLeftLink = "https://developer.lge.com/secure/CheckDevModeSession.dev?sessionToken=";
 
   const resetTimeLink = "https://developer.lge.com/secure/ResetDevModeSession.dev?sessionToken=";
