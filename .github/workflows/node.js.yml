@@ -22,6 +22,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        LG_TOKEN: ${{ secrets.LG_TOKEN }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -36,7 +38,5 @@ jobs:
         echo "cat .env"
         cat .env
         echo LG_TOKEN=$LG_TOKEN
-        echo ${{ vars.LG_TOKEN }}
+        echo ${{ secrets.LG_TOKEN }}
         npm start
-      env:
-        LG_TOKEN: ${{ vars.LG_TOKEN }}
