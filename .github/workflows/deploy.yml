@@ -3,7 +3,7 @@
 
 # Path: .github/workflows/run.yml
 
-name: Run
+name: Deployment
 
 on:
   push:
