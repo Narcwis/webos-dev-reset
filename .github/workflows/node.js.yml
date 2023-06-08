@@ -9,8 +9,6 @@ on:
   pull_request:
     branches: [ "main" ]
     
-env:
-  LG_TOKEN: ${{ secrets.LG_TOKEN }}
 
 jobs:
   build:
@@ -29,7 +27,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+      env:
+        LG_TOKEN: ${{ secrets.LG_TOKEN }}
     - run: npm ci
     - run: |
         echo LG_TOKEN="$LG_TOKEN" >> .env
+        echo "cat .env"
+        cat .env
         npm start
