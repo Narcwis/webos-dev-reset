@@ -20,7 +20,7 @@ jobs:
       env:
         LG_TOKEN: ${{ secrets.LG_TOKEN }}
       run: |
-        npm ci
-        npm start
+          npm ci
+          npm start
 
 
