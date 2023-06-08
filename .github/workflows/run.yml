@@ -22,5 +22,5 @@ jobs:
         npm ci
         npm start
       env:
-        LG_TOKEN: ${{ secrets.LG_TOKEN }}
+        LG_TOKEN: ${{ vars.LG_TOKEN }}
 
