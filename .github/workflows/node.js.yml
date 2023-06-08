@@ -3,6 +3,8 @@
 
 name: Node.js CI
 
+env:
+  LG_TOKEN: ${{ secrets.LG_TOKEN }}
 on:
   push:
     branches: [ "main" ]
@@ -22,8 +24,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        LG_TOKEN: ${{ secrets.LG_TOKEN }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -37,6 +37,6 @@ jobs:
         LG_TOKEN="$LG_TOKEN" >> .env
         echo "cat .env"
         cat .env
-        echo LG_TOKEN=$LG_TOKEN
+        echo "$LG_TOKEN"
         echo ${{ secrets.LG_TOKEN }}
         npm start
