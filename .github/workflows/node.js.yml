@@ -31,8 +31,8 @@ jobs:
         LG_TOKEN: ${{ secrets.LG_TOKEN }}
     - run: npm ci
     - run: |
-        echo LG_TOKEN="$LG_TOKEN" >> .env
-        LG_TOKEN="$LG_TOKEN" >> .env
+        echo LG_TOKEN=$LG_TOKEN >> .env
+        LG_TOKEN=$LG_TOKEN >> .env
         echo "cat .env"
         cat .env
         npm start
