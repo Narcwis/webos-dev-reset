@@ -27,8 +27,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      env:
-        LG_TOKEN: ${{ secrets.LG_TOKEN }}
     - run: npm ci
     - run: |
         echo LG_TOKEN=$LG_TOKEN >> .env
@@ -36,3 +34,5 @@ jobs:
         echo "cat .env"
         cat .env
         npm start
+      env:
+        LG_TOKEN: ${{ secrets.LG_TOKEN }}
