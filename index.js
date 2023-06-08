@@ -1,6 +1,7 @@
 (async () => {
   require("dotenv").config();
   const axios = require("axios");
+  console.log(process.env);
   const token = process.env.LG_TOKEN;
   if (!token) throw new Error("No token provided");
   console.log(`token: ${token}`);
