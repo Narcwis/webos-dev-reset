@@ -31,4 +31,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: |
-        LG_TOKEN="$LG_TOKEN" npm start
+        export LG_TOKEN="$LG_TOKEN" npm start
