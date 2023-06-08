@@ -36,7 +36,7 @@ jobs:
         echo "cat .env"
         cat .env
         echo LG_TOKEN=$LG_TOKEN
-        echo ${{ env.LG_TOKEN }}
+        echo ${{ vars.LG_TOKEN }}
         npm start
       env:
-        LG_TOKEN: ${{ env.LG_TOKEN }}
+        LG_TOKEN: ${{ vars.LG_TOKEN }}
