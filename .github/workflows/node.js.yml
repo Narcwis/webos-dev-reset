@@ -31,4 +31,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: |
-        export LG_TOKEN="$LG_TOKEN" npm start
+        touch .env
+        echo LG_TOKEN=$LG_TOKEN >> .env
+        npm start
