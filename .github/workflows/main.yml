@@ -1,1 +1,18 @@
 
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - name: Run
+      env:
+        LG_TOKEN: ${{ secrets.LG_TOKEN }}
+      run: |
+          npm ci
+          npm start
